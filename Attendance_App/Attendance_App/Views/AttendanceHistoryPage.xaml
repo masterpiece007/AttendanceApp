@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Attendance_App.Views.AttendanceHistoryPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="5,5,5,5" ColumnSpacing="5" RowSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!--<ColumnDefinition Width="Auto"/>-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,0" FontSize="Medium" Text="filter by Date :" />
+                <DatePicker Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" Date="{x:Static sys:DateTime.Today}" x:Name="StartDate" DateSelected="StartDate_DateSelected"/>
+               
+                <ListView Grid.Row="1" Grid.ColumnSpan="3" x:Name="AttendanceList" IsVisible="{Binding isResultFound}" IsPullToRefreshEnabled="True" Refreshing="AttendanceList_Refreshing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding Username}"/>
+                                        <Label Text="{Binding Date}" FontSize="10" TextColor="Blue" />
+                                    </StackLayout>
+                                    <Image Source="icons8checkmark24.png"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Grid.Row="1" x:Name="NoResultFoundLabel" Text="No Attendance Found" TextColor="Gray" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Grid>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

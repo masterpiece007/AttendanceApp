@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="Attendance_App.Views.AttendancePage" Title="Mark Attendance">
+    <ContentPage.Content>
+        <StackLayout x:Name="AttendancePage_">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Margin="10,0,0,0" FontSize="30" Text="Date :" HorizontalOptions="Center" />
+                <Label Grid.Column="1" FontSize="30" HorizontalOptions="StartAndExpand" Text="{Binding TodayDate_}"/>
+            </Grid>
+            <Button Grid.Row="1"  x:Name="MarkAttendance" Clicked="MarkAttendance_Clicked" Text="Mark Attendance" CornerRadius="30" Margin="5,5,5,5"/>
+            <forms:AnimationView
+	x:Name="animationView"
+	Grid.Row="2"
+	Animation="checked_loading.json"
+	Loop="True"
+	AutoPlay="True"
+	VerticalOptions="Center"
+	HorizontalOptions="Center" />
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

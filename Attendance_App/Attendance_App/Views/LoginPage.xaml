@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="Attendance_App.Views.LoginPage"
+              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="200" />
+                <RowDefinition  Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Opacity="0.5" BackgroundColor="#2A3F54">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Text="Sign In" HorizontalOptions="Center" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+                </Grid>
+            </StackLayout>
+            <Frame BackgroundColor="Transparent" OutlineColor="Gold" IsClippedToBounds="True" HasShadow="True" Grid.Row="1" Opacity="0.5">
+                <Grid Margin="10,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Entry Grid.Row="0" x:Name="username_"  Placeholder="username" PlaceholderColor="Gold" FontSize="15"/>
+                    <Entry Grid.Row="1" x:Name="password_" Placeholder="password" IsPassword="True" PlaceholderColor="Gold" FontSize="15"/>
+                    <Button Grid.Row="2" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" HeightRequest="35" Text="Sign In" BackgroundColor="SkyBlue" CornerRadius="30"/>
+                </Grid>
+            </Frame>
+            <StackLayout Grid.Row="2" Opacity="0.5" BackgroundColor="#2A3F54">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="newUser" Tapped="newUser_Tapped"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <Label  x:Name="_newUser" Text="New User?" FontAttributes="Bold" TextColor="Gold" HorizontalOptions="Start" VerticalOptions="Start" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="1">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="rememberMe" Tapped="rememberMe_Tapped"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <Label  x:Name="_rememberMe" Text="Remember Me"  FontAttributes="Bold" TextColor="Gold" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    </StackLayout>
+                   
+                    <StackLayout Grid.Row="1" Grid.ColumnSpan="3">
+                        <forms:AnimationView
+	x:Name="animationView"
+	Grid.Row="1"
+	Animation="material_wave_loading.json"
+	Loop="True"
+	AutoPlay="True"
+	VerticalOptions="Center"
+	HorizontalOptions="Center" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+      
+    </ContentPage.Content>
+</ContentPage>

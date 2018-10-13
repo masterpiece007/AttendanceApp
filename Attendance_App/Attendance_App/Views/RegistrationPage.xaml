@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="Attendance_App.Views.RegistrationPage"       
+             NavigationPage.HasNavigationBar="True"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*" />
+                <RowDefinition  Height="100"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Opacity="0.5" BackgroundColor="#2A3F54">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Text="Create New User" HorizontalOptions="Center" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+                </Grid>
+               
+            </StackLayout>
+            <Frame BackgroundColor="Transparent" OutlineColor="Gold" IsClippedToBounds="True" HasShadow="True" Grid.Row="1" Opacity="0.5">
+                <Grid Margin="10,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Entry Grid.Row="0" x:Name="username_"  Placeholder="username" PlaceholderColor="Gold" FontSize="15"/>
+                    <Entry Grid.Row="1" x:Name="email_"  Placeholder="email address" PlaceholderColor="Gold" FontSize="15"/>
+                    <Entry Grid.Row="2" x:Name="password_" Placeholder="password" IsPassword="True" PlaceholderColor="Gold" FontSize="15"/>
+                    <Entry Grid.Row="3" x:Name="confirmPassword_" Placeholder="confirm password" IsPassword="True" PlaceholderColor="Gold" FontSize="15"/>
+
+                    <Button  Grid.Row="4" x:Name="btnCreateUser" Clicked="btnCreateUser_Clicked"  HeightRequest="35" Text="Create" BackgroundColor="SkyBlue" CornerRadius="30"/>
+                </Grid>
+            </Frame>
+            <StackLayout Grid.Row="2" Opacity="0.5" BackgroundColor="#2A3F54">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+              
+            </StackLayout>
+        </Grid>
+      
+    </ContentPage.Content>
+</ContentPage>
